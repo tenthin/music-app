@@ -1,9 +1,9 @@
-import './App.css';
-import {useState,useEffect} from 'react';
 import Player from './components/Player'
+import {useState, useEffect} from 'react';
+
 
 function App() {
-  const[songs] = useState([
+  const [songs] = useState([
     {
       title: "Forget me too ft. Halsey",
       artist: "Machine Gun Kelly",
@@ -29,29 +29,30 @@ function App() {
       src: "./music/somebody-new.mp3"
     }
   ]);
-  const [currentSongIndex,setCurrentSongIndex] = useState(0);
-  const [nextSongIndex,setNextSongIndex] = useState(currentSongIndex + 1);
 
-  useEffect(() =>{
-    setNextSongIndex(()=>{
-      if(currentSongIndex+1 > songs.length-1) {
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [nextSongIndex, setNextSongIndex] = useState(0);
+
+  useEffect(() => {
+    setNextSongIndex(() => {
+      if (currentSongIndex + 1 > songs.length - 1) {
         return 0;
       } else {
         return currentSongIndex + 1;
       }
-    })
-  },[currentSongIndex])
+    });
+  }, [currentSongIndex]);
 
-    return (
-      <div className="App">
-        <Player
-          currentSongIndex={currentSongIndex}
-          setNextSongIndex={setCurrentSongIndex}
-          nextSongIndex={nextSongIndex}
-          sons={songs}
-        />
-      </div>
-    );
+  return (
+    <div className="App">
+      <Player 
+        currentSongIndex={currentSongIndex} 
+        setCurrentSongIndex={setCurrentSongIndex} 
+        nextSongIndex={nextSongIndex} 
+        songs={songs}
+      />
+    </div>
+  );
 }
 
 export default App;
