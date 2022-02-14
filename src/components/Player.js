@@ -7,7 +7,7 @@ function Player() {
         <h4>Playing now</h4>
         {/*DETAILS*/}
         {/*CONTROLS*/}
-        <p></p>
+        <p><strong>Next up:</strong>Kindest regard by Witt Lowry</p>
     </div>
   )
 }

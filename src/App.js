@@ -1,6 +1,6 @@
 import './App.css';
 import {useState} from 'react';
-
+import Player from './components/Player'
 
 function App() {
   const[songs, setSongs] = useState([
@@ -28,10 +28,12 @@ function App() {
       img_src: "./images/song-4.jpg",
       src: "./music/somebody-new.mp3"
     }
-])
+]);
+const [currentSongIndex,setCurrentSongIndex] = useState(0);
+const [nextSongIndex,setNextSongIndex] = useState(currentSongIndex + 1);
   return (
     <div className="App">
-      COMPONENTS HERE
+      <Player/>
     </div>
   );
 }
