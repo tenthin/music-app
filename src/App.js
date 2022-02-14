@@ -33,7 +33,10 @@ const [currentSongIndex,setCurrentSongIndex] = useState(0);
 const [nextSongIndex,setNextSongIndex] = useState(currentSongIndex + 1);
   return (
     <div className="App">
-      <Player/>
+      <Player
+        song={songs[currentSongIndex]}
+        nextSong={songs[nextSongIndex]}
+      />
     </div>
   );
 }
