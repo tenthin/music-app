@@ -12,7 +12,33 @@ function Player(props) {
         } else {
             audioEl.current.pause();
         }
-    })
+    });
+
+    const SkipSong = (forwards = true) => {
+        if(forwards) {
+            props.setCurrentSongIndex(() => {
+                let temp = props.currentSongIndex;
+                temp++;
+
+                if(temp > props.songs.length-1){
+                    temp = 0;
+                }
+
+                return temp;
+            })
+        }else {
+            props.setCurrentSongIndex(() => {
+                let temp = props.currentSongIndex;
+                temp--;
+
+                if(temp < 0){
+                    temp = props.songs.length - 1;
+                }
+
+                return temp;
+
+        }
+    }
 
   return (
     <div className="c-player">
